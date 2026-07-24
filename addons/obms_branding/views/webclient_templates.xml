@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="obms_layout" inherit_id="web.layout" name="OBMS Layout">
+        <xpath expr="//title" position="replace">
+            <title t-esc="title or 'OBMS — OCTAPUS BUSINESS MANAGEMENT SYSTEM'"/>
+        </xpath>
+        <xpath expr="//link[@rel='shortcut icon']" position="replace">
+            <link type="image/svg+xml" rel="shortcut icon" href="/obms_branding/static/src/img/obms-mark.svg"/>
+        </xpath>
+    </template>
+
+    <template id="obms_login_layout" inherit_id="web.login_layout" name="OBMS Login">
+        <xpath expr="//div[contains(@class, 'card-body')]/div[1]/img" position="attributes">
+            <attribute name="t-attf-src">/obms_branding/static/src/img/obms-logo.svg</attribute>
+            <attribute name="alt">OCTAPUS BUSINESS MANAGEMENT SYSTEM</attribute>
+        </xpath>
+        <xpath expr="//a[contains(@href, 'odoo.com')]" position="replace">
+            <span class="obms-signature">OCTAPUS BUSINESS MANAGEMENT SYSTEM</span>
+        </xpath>
+    </template>
+
+    <template id="obms_brand_promotion" inherit_id="web.brand_promotion" name="OBMS Brand Promotion">
+        <xpath expr="//div[contains(@class, 'o_brand_promotion')]" position="replace">
+            <div class="o_brand_promotion obms-signature">Powered by OBMS</div>
+        </xpath>
+    </template>
+</odoo>
+

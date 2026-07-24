@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Keep the former action ID as a safe redirect for old bookmarks. -->
+    <record id="action_accountant_ai" model="ir.actions.client">
+        <field name="name">Accounts &amp; Finance</field>
+        <field name="tag">obms.finance_dashboard</field>
+        <field name="path">accountant-ai</field>
+    </record>
+
+    <record id="action_finance_dashboard" model="ir.actions.client">
+        <field name="name">Accounts &amp; Finance</field>
+        <field name="tag">obms.finance_dashboard</field>
+        <field name="path">accounts-finance</field>
+    </record>
+
+    <menuitem id="menu_accountant_ai_root"
+              name="Accounts &amp; Finance"
+              action="action_finance_dashboard"
+              sequence="7"
+              groups="account.group_account_readonly,account.group_account_invoice"
+              web_icon="obms_accountant_ai,static/description/icon.svg">
+        <menuitem id="menu_finance_overview" name="Overview" action="action_finance_dashboard" sequence="1"/>
+        <menuitem id="menu_accountant_ai" name="Legacy Finance Link" action="action_finance_dashboard" sequence="2" groups="base.group_no_one"/>
+        <menuitem id="menu_customer_invoices" name="Customer Invoices" action="account.action_move_out_invoice" sequence="10"/>
+        <menuitem id="menu_vendor_bills" name="Vendor Bills" action="account.action_move_in_invoice" sequence="20"/>
+        <menuitem id="menu_customer_payments" name="Customer Payments" action="account.action_account_payments" sequence="30"/>
+        <menuitem id="menu_vendor_payments" name="Vendor Payments" action="account.action_account_payments_payable" sequence="40"/>
+        <menuitem id="menu_journal_entries" name="Journal Entries" action="account.action_move_journal_line" sequence="50" groups="account.group_account_readonly"/>
+    </menuitem>
+</odoo>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="obms_accountant_ai.FinanceDashboard">
+        <div class="o_obms_finance h-100 overflow-auto">
+            <header class="o_obms_finance_header">
+                <div>
+                    <div class="o_obms_finance_eyebrow">OCTAPUS BUSINESS MANAGEMENT SYSTEM</div>
+                    <h1>Accounts &amp; Finance</h1>
+                    <p t-if="state.data"><t t-esc="state.data.company"/> · Financial overview for <t t-esc="state.data.year"/></p>
+                </div>
+                <button class="btn btn-light" t-on-click="load" t-att-disabled="state.loading">
+                    <t t-if="state.loading">Refreshing…</t><t t-else="">Refresh</t>
+                </button>
+            </header>
+
+            <main class="o_obms_finance_body">
+                <div t-if="state.loading &amp;&amp; !state.data" class="o_obms_finance_loading">Loading financial data…</div>
+                <div t-elif="state.error &amp;&amp; !state.data" class="alert alert-danger d-flex align-items-center justify-content-between gap-3">
+                    <span><t t-esc="state.error"/></span>
+                    <button class="btn btn-outline-danger btn-sm" t-on-click="load">Try again</button>
+                </div>
+                <t t-else="">
+                    <div t-if="state.error" class="alert alert-warning d-flex align-items-center justify-content-between gap-3">
+                        <span><t t-esc="state.error"/> Showing the most recent available data.</span>
+                        <button class="btn btn-outline-warning btn-sm" t-on-click="load">Try again</button>
+                    </div>
+                    <section class="o_obms_finance_cards">
+                        <article class="o_obms_finance_card"><span>Receivables</span><strong><t t-esc="money(state.data.receivable)"/></strong><small><t t-esc="money(state.data.overdue_receivable)"/> overdue</small></article>
+                        <article class="o_obms_finance_card"><span>Payables</span><strong><t t-esc="money(state.data.payable)"/></strong><small><t t-esc="money(state.data.overdue_payable)"/> overdue</small></article>
+                        <article class="o_obms_finance_card"><span>Cash &amp; Bank</span><strong><t t-esc="money(state.data.cash_balance)"/></strong><small>Posted balance</small></article>
+                        <article t-att-class="state.data.net_profit_ytd &lt; 0 ? 'o_obms_finance_card is-negative' : 'o_obms_finance_card is-positive'"><span>Net Profit YTD</span><strong><t t-esc="money(state.data.net_profit_ytd)"/></strong><small><t t-esc="money(state.data.income_ytd)"/> income · <t t-esc="money(state.data.expenses_ytd)"/> expenses</small></article>
+                    </section>
+
+                    <section class="o_obms_finance_grid">
+                        <article class="o_obms_finance_panel">
+                            <div class="o_obms_finance_panel_title"><h2>Quick actions</h2></div>
+                            <div class="o_obms_finance_actions">
+                                <button t-on-click="() => this.openAction('account.action_move_out_invoice')">Customer Invoices <b><t t-esc="state.data.customer_invoices"/></b></button>
+                                <button t-on-click="() => this.openAction('account.action_move_in_invoice')">Vendor Bills <b><t t-esc="state.data.vendor_bills"/></b></button>
+                                <button t-on-click="() => this.openAction('account.action_account_payments')">Customer Payments</button>
+                                <button t-on-click="() => this.openAction('account.action_account_payments_payable')">Vendor Payments</button>
+                                <button t-on-click="() => this.openAction('account.action_move_journal_line')">Journal Entries</button>
+                            </div>
+                            <div class="o_obms_finance_drafts"><strong><t t-esc="state.data.draft_documents"/></strong> draft financial documents need review</div>
+                        </article>
+
+                        <article class="o_obms_finance_panel">
+                            <div class="o_obms_finance_panel_title"><h2>Overdue customer invoices</h2><span>Oldest first</span></div>
+                            <div t-if="!state.data.overdue_items.length" class="o_obms_finance_empty">No overdue customer invoices.</div>
+                            <table t-else="" class="table table-sm">
+                                <thead><tr><th>Invoice</th><th>Customer</th><th>Due</th><th class="text-end">Amount</th></tr></thead>
+                                <tbody>
+                                    <tr t-foreach="state.data.overdue_items" t-as="item" t-key="item.id">
+                                        <td><t t-esc="item.number"/></td><td><t t-esc="item.partner"/></td><td><t t-esc="item.due_date"/></td><td class="text-end"><t t-esc="money(item.amount)"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </article>
+                    </section>
+                </t>
+            </main>
+        </div>
+    </t>
+</templates>

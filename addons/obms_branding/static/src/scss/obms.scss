@@ -1,0 +1,19 @@
+$obms-navy: #10243e;
+$obms-cyan: #10b9b0;
+
+.obms-signature {
+    color: $obms-navy;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.o_main_navbar {
+    --NavBar-entry-color: #fff;
+    background: linear-gradient(90deg, $obms-navy, #193d61) !important;
+}
+
+.btn-primary {
+    --btn-bg: #{$obms-cyan};
+    --btn-border-color: #{$obms-cyan};
+}
+
