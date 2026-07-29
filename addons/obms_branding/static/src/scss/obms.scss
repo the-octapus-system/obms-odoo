@@ -194,7 +194,7 @@ body {
     content: "";
     position: absolute;
     inset: 0 auto 0 0;
-    width: 0.35rem;
+    width: 0;
     background: linear-gradient(180deg, $obms-cyan, $obms-amber);
     z-index: 0;
     pointer-events: none;
@@ -216,6 +216,32 @@ body {
 
 .o_login .oe_login_form {
     background: rgba(255, 255, 255, 0.92);
+    // Keep the branded rail clear of labels and controls at every viewport.
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.o_login .oe_login_form label,
+.o_login .oe_login_form .form-label,
+.o_login .oe_login_form .form-control,
+.o_login .oe_login_form .input-group,
+.o_login .oe_login_form .btn {
+    position: relative;
+    z-index: 2;
+}
+
+.o_login .oe_login_form label,
+.o_login .oe_login_form .form-label {
+    display: block;
+    font-size: 0.875rem;
+    line-height: 1.35;
+    margin-left: 0.25rem;
+    padding-left: 0;
+}
+
+.o_login .oe_login_form .form-control {
+    min-height: 2.75rem;
+    font-size: 0.95rem;
 }
 
 .o_login .btn-primary {

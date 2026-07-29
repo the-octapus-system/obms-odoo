@@ -5,7 +5,7 @@ $cyan: #10b9b0;
 .o_obms_finance_header {
     align-items: center; background: linear-gradient(120deg, $navy, #183f64); color: #fff;
     display: flex; justify-content: space-between; padding: 24px 40px;
-    h1 { font-size: 30px; margin: 2px 0; }
+    h1 { color: #fff !important; font-size: 30px; margin: 2px 0; }
     p { color: #cbd8e5; margin: 0; }
 }
 .o_obms_finance_eyebrow { color: #77ddd7; font-size: 11px; font-weight: 700; letter-spacing: .13em; }

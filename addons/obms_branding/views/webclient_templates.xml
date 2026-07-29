@@ -5,13 +5,13 @@
             <title t-esc="title or 'OBMS — OCTAPUS BUSINESS MANAGEMENT SYSTEM'"/>
         </xpath>
         <xpath expr="//link[@rel='shortcut icon']" position="replace">
-            <link type="image/png" rel="shortcut icon" href="/obms_branding/static/src/img/obms-mark.png"/>
+            <link type="image/png" rel="shortcut icon" href="/obms_branding/static/src/img/obms-mark-user.png"/>
         </xpath>
     </template>
 
     <template id="obms_login_layout" inherit_id="web.login_layout" name="OBMS Login">
         <xpath expr="//div[contains(@class, 'card-body')]/div[1]/img" position="attributes">
-            <attribute name="t-attf-src">/obms_branding/static/src/img/obms-logo.png</attribute>
+            <attribute name="t-attf-src">/obms_branding/static/src/img/obms-logo-user.png</attribute>
             <attribute name="alt">OCTAPUS BUSINESS MANAGEMENT SYSTEM</attribute>
         </xpath>
         <xpath expr="//a[contains(@href, 'odoo.com')]" position="replace">
