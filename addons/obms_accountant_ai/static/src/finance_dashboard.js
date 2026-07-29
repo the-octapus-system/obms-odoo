@@ -61,6 +61,10 @@ export class ObmsFinanceDashboard extends Component {
     openAction(xmlId) {
         return this.action.doAction(xmlId);
     }
+
+    openDiscuss() {
+        window.location.assign("/odoo/discuss");
+    }
 }
 
 registry.category("actions").add("obms.finance_dashboard", ObmsFinanceDashboard);

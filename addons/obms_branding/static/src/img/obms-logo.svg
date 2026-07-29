@@ -1,8 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 150" role="img" aria-label="OCTAPUS BUSINESS MANAGEMENT SYSTEM">
-  <rect x="4" y="18" width="112" height="112" rx="25" fill="#10243e"/>
-  <path d="M34 48h52v52H34z" fill="none" stroke="#10b9b0" stroke-width="11"/>
+  <rect x="4" y="18" width="112" height="112" rx="25" fill="#0d1b2a"/>
+  <path d="M34 48h52v52H34z" fill="none" stroke="#28c7b8" stroke-width="11"/>
   <circle cx="60" cy="74" r="13" fill="#fff"/>
-  <text x="140" y="76" fill="#10243e" font-family="Arial, sans-serif" font-size="60" font-weight="700">OBMS</text>
-  <text x="142" y="108" fill="#46627d" font-family="Arial, sans-serif" font-size="20" letter-spacing="1.7">OCTAPUS BUSINESS MANAGEMENT SYSTEM</text>
+  <text x="140" y="76" fill="#0d1b2a" font-family="Arial, sans-serif" font-size="60" font-weight="700">OBMS</text>
+  <text x="142" y="108" fill="#526b7a" font-family="Arial, sans-serif" font-size="20" letter-spacing="1.7">OCTAPUS BUSINESS MANAGEMENT SYSTEM</text>
 </svg>
-

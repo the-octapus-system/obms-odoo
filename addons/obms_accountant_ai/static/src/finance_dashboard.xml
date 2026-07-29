@@ -35,6 +35,7 @@
                         <article class="o_obms_finance_panel">
                             <div class="o_obms_finance_panel_title"><h2>Quick actions</h2></div>
                             <div class="o_obms_finance_actions">
+                                <button t-on-click="openDiscuss">Team Chat &amp; Calls</button>
                                 <button t-on-click="() => this.openAction('account.action_move_out_invoice')">Customer Invoices <b><t t-esc="state.data.customer_invoices"/></b></button>
                                 <button t-on-click="() => this.openAction('account.action_move_in_invoice')">Vendor Bills <b><t t-esc="state.data.vendor_bills"/></b></button>
                                 <button t-on-click="() => this.openAction('account.action_account_payments')">Customer Payments</button>

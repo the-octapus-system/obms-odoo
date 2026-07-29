@@ -1,19 +1,383 @@
-$obms-navy: #10243e;
-$obms-cyan: #10b9b0;
+$obms-ink: #111827;
+$obms-navy: #172554;
+$obms-cyan: #2563eb;
+$obms-mint: #dbeafe;
+$obms-slate: #f8fafc;
+$obms-line: #e5e7eb;
+$obms-amber: #f59e0b;
+
+:root {
+    --obms-ink: #{$obms-ink};
+    --obms-navy: #{$obms-navy};
+    --obms-cyan: #{$obms-cyan};
+    --obms-mint: #{$obms-mint};
+    --obms-slate: #{$obms-slate};
+    --obms-line: #{$obms-line};
+    --obms-success: #22c55e;
+    --obms-warning: #f59e0b;
+    --obms-danger: #ef4444;
+}
+
+body {
+    color: $obms-ink;
+    background: $obms-slate;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-variant-numeric: tabular-nums;
+}
 
 .obms-signature {
     color: $obms-navy;
     font-weight: 600;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
 }
 
 .o_main_navbar {
     --NavBar-entry-color: #fff;
-    background: linear-gradient(90deg, $obms-navy, #193d61) !important;
+    min-height: 3.75rem;
+    padding: 0 0.75rem;
+    background: linear-gradient(105deg, $obms-ink 0%, $obms-navy 68%, #1e5aa8 100%) !important;
+    box-shadow: 0 8px 24px rgba(11, 31, 58, 0.18);
+    border-bottom: 1px solid rgba(219, 234, 254, 0.28);
+}
+
+.o_main_navbar .o_menu_brand,
+.o_main_navbar .o_nav_entry,
+.o_main_navbar .o_menu_sections .dropdown-toggle,
+.o_main_navbar .o_user_menu .dropdown-toggle {
+    min-height: 3.75rem;
+    display: inline-flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.86) !important;
+    transition: color 160ms ease, background 160ms ease;
+}
+
+.o_main_navbar .o_menu_brand {
+    color: #fff !important;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.o_main_navbar .o_nav_entry:hover,
+.o_main_navbar .o_menu_sections .dropdown-toggle:hover,
+.o_main_navbar .o_user_menu .dropdown-toggle:hover {
+    color: #fff !important;
+    background: rgba(219, 234, 254, 0.14);
+}
+
+.o_main_navbar .o_menu_sections .dropdown-toggle::after {
+    color: $obms-cyan;
+}
+
+.o_action_manager {
+    background: $obms-slate;
+}
+
+.o_control_panel {
+    background: rgba(255, 255, 255, 0.84);
+    border-bottom: 1px solid $obms-line;
+    backdrop-filter: blur(12px);
+}
+
+// Enterprise design tokens: consistent 8px rhythm, soft elevation, and
+// restrained radii across Odoo's existing components.
+.o_web_client {
+    --obms-radius-card: 1.125rem;
+    --obms-radius-control: 0.75rem;
+    --obms-shadow-soft: 0 12px 32px rgba(15, 23, 42, 0.07);
+}
+
+.o_web_client .o_control_panel,
+.o_web_client .o_form_sheet,
+.o_web_client .o_kanban_record,
+.o_web_client .o_list_view {
+    border-radius: var(--obms-radius-card);
+}
+
+.o_web_client .btn,
+.o_web_client .form-control,
+.o_web_client .form-select,
+.o_web_client .o_input,
+.o_web_client .dropdown-menu {
+    border-radius: var(--obms-radius-control);
+}
+
+.o_web_client .btn-primary {
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    transition: transform 180ms ease-out, box-shadow 180ms ease-out, background 180ms ease-out;
+}
+
+.o_web_client .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.24);
+}
+
+.o_web_client :focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.32);
+    outline-offset: 2px;
+}
+
+.o_action_manager .o_view_controller,
+.o_list_view,
+.o_form_view,
+.o_kanban_view {
+    color: $obms-ink;
+}
+
+.o_list_view .o_list_table thead th {
+    color: #4d6682;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: #f8fbff;
+    border-bottom: 1px solid $obms-line;
+}
+
+.o_list_view .o_list_table tbody tr:hover {
+    background: rgba(37, 99, 235, 0.07);
+}
+
+.o_kanban_record,
+.o_form_sheet_bg .o_form_sheet,
+.o_setting_container .o_setting_box {
+    border: 1px solid $obms-line;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(13, 27, 42, 0.06);
+}
+
+.o_kanban_record {
+    background: #fff;
 }
 
 .btn-primary {
     --btn-bg: #{$obms-cyan};
     --btn-border-color: #{$obms-cyan};
+    --btn-hover-bg: #1d4ed8;
+    --btn-hover-border-color: #1d4ed8;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 0.65rem;
 }
 
+.btn-secondary,
+.btn-outline-secondary {
+    border-color: $obms-line;
+    border-radius: 0.65rem;
+}
+
+.form-control,
+.form-select {
+    border-color: $obms-line;
+    border-radius: 0.65rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: $obms-cyan;
+    box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.18);
+}
+
+// Login: calm, branded entry point with a visible status rail.
+.oe_login_form,
+.o_login_auth {
+    position: relative;
+    border: 1px solid rgba(216, 229, 230, 0.9);
+    border-radius: 1.25rem;
+    box-shadow: 0 24px 70px rgba(13, 27, 42, 0.16);
+    overflow: hidden;
+}
+
+.oe_login_form::before,
+.o_login_auth::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0.35rem;
+    background: linear-gradient(180deg, $obms-cyan, $obms-amber);
+    z-index: 0;
+    pointer-events: none;
+}
+
+// Keep the accent rail behind labels and controls. Without an explicit
+// stacking order it can paint over the first characters of login fields.
+.oe_login_form > *,
+.o_login_auth > * {
+    position: relative;
+    z-index: 1;
+}
+
+.o_login {
+    background:
+        radial-gradient(circle at 12% 18%, rgba(37, 99, 235, 0.16), transparent 28rem),
+        linear-gradient(135deg, #f8fbff 0%, $obms-slate 55%, #e1ecfb 100%);
+}
+
+.o_login .oe_login_form {
+    background: rgba(255, 255, 255, 0.92);
+}
+
+.o_login .btn-primary {
+    width: 100%;
+    min-height: 2.9rem;
+}
+
+@media (max-width: 768px) {
+    .o_main_navbar {
+        min-height: 3.25rem;
+    }
+
+    .o_main_navbar .o_menu_brand,
+    .o_main_navbar .o_nav_entry,
+    .o_main_navbar .o_menu_sections .dropdown-toggle,
+    .o_main_navbar .o_user_menu .dropdown-toggle {
+        min-height: 3.25rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .o_main_navbar .o_nav_entry,
+    .o_main_navbar .o_menu_sections .dropdown-toggle,
+    .o_main_navbar .o_user_menu .dropdown-toggle {
+        transition: none;
+    }
+}
+
+// iOS-inspired glass surfaces and Kraken-inspired dark operations chrome.
+.o_web_client {
+    --obms-radius: 1rem;
+    --obms-shadow: 0 18px 50px rgba(13, 27, 42, 0.08);
+    background: #e3edf9;
+}
+
+.o_web_client .o_main_navbar {
+    position: relative;
+    z-index: 5;
+    border-radius: 0 0 1.15rem 1.15rem;
+}
+
+.o_web_client .o_main_navbar::after {
+    content: "";
+    position: absolute;
+    left: 1rem;
+    bottom: -0.18rem;
+    width: 4.5rem;
+    height: 0.18rem;
+    border-radius: 99px;
+    background: $obms-cyan;
+    box-shadow: 0 0 18px rgba(37, 99, 235, 0.7);
+}
+
+.o_web_client .o_action_manager {
+    padding: 0.85rem;
+    background:
+        radial-gradient(circle at 88% 4%, rgba(37, 99, 235, 0.12), transparent 24rem),
+        linear-gradient(140deg, #e8f0fb 0%, #dce9fa 100%);
+}
+
+.o_web_client .o_control_panel {
+    margin-bottom: 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: var(--obms-radius);
+    box-shadow: var(--obms-shadow);
+    background: rgba(255, 255, 255, 0.72);
+}
+
+.o_web_client .o_breadcrumb,
+.o_web_client .o_control_panel .o_cp_buttons,
+.o_web_client .o_control_panel .o_cp_searchview {
+    min-height: 2.8rem;
+}
+
+.o_web_client .o_form_view .o_form_sheet_bg {
+    padding: 1.2rem;
+    background: transparent;
+}
+
+.o_web_client .o_form_view .o_form_sheet {
+    max-width: 1100px;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 1.15rem;
+    box-shadow: var(--obms-shadow);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.o_web_client .o_list_view {
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: var(--obms-radius);
+    box-shadow: var(--obms-shadow);
+    background: rgba(255, 255, 255, 0.86);
+}
+
+.o_web_client .o_list_view .o_list_table {
+    --TableCell-paddingY: 0.85rem;
+}
+
+.o_web_client .o_kanban_view {
+    padding: 0.25rem;
+}
+
+.o_web_client .o_kanban_view .o_kanban_record {
+    border-color: rgba(255, 255, 255, 0.95);
+    box-shadow: var(--obms-shadow);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.o_web_client .o_kanban_view .o_kanban_record:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 55px rgba(13, 27, 42, 0.13);
+}
+
+.o_web_client .dropdown-menu,
+.o_web_client .o_popover,
+.o_web_client .modal-content {
+    border: 1px solid rgba(216, 229, 230, 0.95);
+    border-radius: 0.9rem;
+    box-shadow: 0 24px 60px rgba(13, 27, 42, 0.18);
+}
+
+.o_web_client .o_menu_sections .dropdown-menu {
+    margin-top: 0.35rem;
+    padding: 0.45rem;
+}
+
+.o_web_client .o_menu_sections .dropdown-item,
+.o_web_client .dropdown-menu .dropdown-item {
+    min-height: 2.45rem;
+    display: flex;
+    align-items: center;
+    border-radius: 0.55rem;
+}
+
+.o_web_client .o_menu_sections .dropdown-item:hover,
+.o_web_client .dropdown-menu .dropdown-item:hover {
+    color: $obms-ink;
+    background: $obms-mint;
+}
+
+.o_web_client .o_main_navbar .fa,
+.o_web_client .o_main_navbar .oi {
+    color: $obms-mint;
+}
+
+.o_web_client .o_notification_manager .o_notification {
+    border-radius: 0.9rem;
+    box-shadow: 0 18px 50px rgba(13, 27, 42, 0.18);
+}
+
+@media (max-width: 768px) {
+    .o_web_client .o_action_manager {
+        padding: 0.45rem;
+    }
+
+    .o_web_client .o_form_view .o_form_sheet_bg {
+        padding: 0.5rem;
+    }
+
+    .o_web_client .o_form_view .o_form_sheet {
+        border-radius: 0.85rem;
+    }
+}
