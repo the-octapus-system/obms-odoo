@@ -13,9 +13,11 @@
     "assets": {
         "web.assets_backend": [
             "obms_branding/static/src/scss/obms.scss",
+            "obms_branding/static/src/js/obms_branding.js",
         ],
         "web.assets_frontend": [
             "obms_branding/static/src/scss/obms.scss",
+            "obms_branding/static/src/js/obms_branding.js",
         ],
     },
     "installable": True,
