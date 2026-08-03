@@ -235,6 +235,8 @@ body {
 }
 
 .o_login {
+    font-size: 0.875rem;
+    line-height: 1.4;
     background:
         radial-gradient(circle at 12% 18%, rgba(37, 99, 235, 0.16), transparent 28rem),
         linear-gradient(135deg, #f8fbff 0%, $obms-slate 55%, #e1ecfb 100%);
@@ -265,14 +267,32 @@ body {
     padding-left: 0;
 }
 
+.o_login .oe_login_form a,
+.o_login .oe_login_form .btn-link,
+.o_login .oe_login_form .o_login_auth_link {
+    color: #172554 !important;
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
 .o_login .oe_login_form .form-control {
     min-height: 2.75rem;
     font-size: 0.95rem;
+    line-height: 1.4;
+    padding: 0.65rem 0.8rem;
 }
 
 .o_login .btn-primary {
     width: 100%;
     min-height: 2.9rem;
+    font-size: 1rem;
+    line-height: 1.35;
+}
+
+.o_login .oe_login_form .input-group,
+.o_login .oe_login_form .input-group > .form-control,
+.o_login .oe_login_form .input-group > .btn {
+    min-height: 2.75rem;
 }
 
 @media (max-width: 768px) {
