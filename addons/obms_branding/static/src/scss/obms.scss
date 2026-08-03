@@ -16,6 +16,8 @@ $obms-amber: #f59e0b;
     --obms-success: #22c55e;
     --obms-warning: #f59e0b;
     --obms-danger: #ef4444;
+    // Replace Odoo's default maroon brand accent with OBMS dark blue.
+    --o-brand-odoo: #172554;
 }
 
 body {
@@ -72,6 +74,30 @@ body {
 
 .o_action_manager {
     background: $obms-slate;
+}
+
+// The compiled core stylesheet uses the maroon accent for primary controls.
+// Scope these overrides to the application UI and leave semantic status colors
+// (success, warning, danger) untouched.
+.o_web_client,
+.o_login {
+    --o-brand-odoo: #172554;
+    --o-brand-primary: #172554;
+}
+
+.o_web_client .btn-primary,
+.o_web_client .btn-primary:not(:disabled):not(.disabled),
+.o_login .btn-primary {
+    background-color: #172554 !important;
+    border-color: #172554 !important;
+}
+
+.o_web_client .btn-primary:hover,
+.o_web_client .btn-primary:focus,
+.o_login .btn-primary:hover,
+.o_login .btn-primary:focus {
+    background-color: #1e3a8a !important;
+    border-color: #1e3a8a !important;
 }
 
 .o_control_panel {
