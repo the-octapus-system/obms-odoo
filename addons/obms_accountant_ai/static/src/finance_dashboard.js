@@ -54,7 +54,8 @@ export class ObmsFinanceDashboard extends Component {
                 maximumFractionDigits: 2,
             }).format(amount);
         } catch {
-            return `${this.state.data.currency_symbol || ""} ${amount.toFixed(2)}`.trim();
+            // Keep the finance dashboard explicit and locale-independent for UAE users.
+            return `AED ${amount.toFixed(2)}`;
         }
     }
 
